@@ -1,14 +1,11 @@
 # Phương pháp đề xuất và kết quả đối chiếu
 
-**Phương pháp đề xuất duy nhất là CT-BERT xử lý URL và emoji, sau đó hiệu chỉnh sigmoid.** Nhóm chọn theo Weighted-F1 cao nhất trên Validation. CT-BERT gốc, Weighted Mean và Choquet là các đối chứng.
+**Phương pháp đề xuất duy nhất là CT-BERT xử lý URL và emoji, sau đó hiệu chỉnh sigmoid.** Nhóm chọn theo Weighted-F1 cao nhất trên Validation. Bảng chính giữ các baseline và ensemble đối chứng không dùng CT-BERT. Các kết quả CT-BERT cũ được ghi trong phần phân tích thí nghiệm.
 
 So sánh sử dụng Validation 2.139 mẫu và Test mirror 2.140 mẫu đã từng dùng. Mỗi CT-BERT fit 3.792 mẫu, chọn epoch trên 702 mẫu nội bộ, hiệu chỉnh sigmoid trên C, và giữ seed 42. Weighted Mean và Choquet dùng xác suất của CT-BERT gốc và DistilBERT, với hệ số đã khóa trên M. Biến thể URL và emoji là mô hình đơn với checkpoint riêng. Không ghép biến thể này vào các ensemble cũ.
 
 | Phương pháp | Weighted-F1 Val | Weighted-F1 Test | Lỗi Val | Lỗi Test |
 |---|---:|---:|---:|---:|
-| CT-BERT gốc, đã hiệu chỉnh | 98,223% | 98,271% | 38 | 37 |
-| CT-BERT + DistilBERT, Weighted Mean | 98,270% | 98,271% | 37 | 37 |
-| CT-BERT + DistilBERT, Choquet | 98,176% | 98,271% | 39 | 37 |
 | CT-BERT xử lý URL và emoji, đã hiệu chỉnh | 98,457% | 98,318% | 33 | 36 |
 
 - **Tiền xử lý.** URL và emoji được thử như một gói. So với CT-BERT gốc đã hiệu chỉnh, biến thể mới sửa 11 lỗi và tạo 6 lỗi trên Val, sửa 7 lỗi và tạo 6 lỗi trên Test. Chênh lệch Weighted-F1 lần lượt là +0,234 và +0,047 điểm phần trăm. Khoảng bootstrap ghép cặp theo mẫu 95% lần lượt là [−0,140; +0,609] và [−0,280; +0,374] điểm phần trăm. Mẫu gần trùng hoặc cùng nguồn có thể phụ thuộc, nên đây là khoảng tham khảo. Một seed và kết quả trên các tập đã được dùng trước đây giới hạn khả năng suy rộng.

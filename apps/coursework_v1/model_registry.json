@@ -150,20 +150,6 @@
         "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
       }
     },
-    "ctbert": {
-      "kind": "ctbert_original",
-      "calibrator": "results\\20261110_ctbert_development_v1\\calibrator.joblib",
-      "files": {
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\config.json": "573a1d834bed65e1e3d017e96c3043245700046024eaf22855b4d7bdc4a3616e",
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\model.safetensors": "c49b66593d439387e7d7eb256102fae9fad3ce8e4fc5f5957ecdb28f96153fc4",
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\tokenizer_config.json": "c0b55baeaa0376d3153e1759b490d0d543700ff5de65cc9fba17c1fb7162384f",
-        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
-        "results\\20261110_ctbert_development_v1\\ctbert\\base_lock.json": "f0fada94127710294aba40e079a0a295336cfc9942b45fadd37cd8bb86db96a9",
-        "results\\20261110_ctbert_development_v1\\calibrator.joblib": "6d1bee1e8fca6d8a96f9c868469a55754ab5c1d7ed20cff9bfb0920f0f3f54a3"
-      }
-    },
     "ctbert_url_emoji": {
       "kind": "ctbert_url_emoji",
       "calibrator": "results\\20261110_ctbert_tweet_preprocess_v2\\calibrator.joblib",
@@ -315,49 +301,12 @@
       "protocol": "Unified inner-fit3792 / C calibration / M ensemble",
       "metric_model": "B3__learned_choquet"
     },
-    "ctbert_cal": {
-      "kind": "base",
-      "label": "CT-BERT",
-      "base": "ctbert",
-      "metric_model": "ctbert",
-      "calibrated": true,
-      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
-    },
     "ctbert_url_emoji_cal": {
       "kind": "base",
       "label": "CT-BERT · URL và emoji",
       "base": "ctbert_url_emoji",
       "metric_model": "ctbert_url_emoji",
       "calibrated": true,
-      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
-    },
-    "ctbert_distilbert_weighted_mean": {
-      "kind": "ensemble",
-      "label": "CT-BERT + DistilBERT · Trung bình có trọng số",
-      "members": [
-        "ctbert",
-        "distilbert"
-      ],
-      "weights": [
-        0.9113553326871912,
-        0.08864466731280891
-      ],
-      "metric_model": "ctbert_distilbert__weighted_mean",
-      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
-    },
-    "ctbert_distilbert_learned_choquet": {
-      "kind": "ensemble",
-      "label": "CT-BERT + DistilBERT · Choquet",
-      "members": [
-        "ctbert",
-        "distilbert"
-      ],
-      "weights": [
-        0.5767068512741989,
-        0.05458757770766521,
-        0.36870557101813595
-      ],
-      "metric_model": "ctbert_distilbert__learned_choquet",
       "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
     }
   }

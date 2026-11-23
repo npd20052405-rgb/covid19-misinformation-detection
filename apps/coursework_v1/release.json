@@ -1,9 +1,9 @@
 {
-  "registry_sha256": "ca6dfc4e0373081bfb6a146dca64e9c1cf9c975170a08b70b80c65039b64518d",
+  "registry_sha256": "2c1fa120ecf670c4eb29a0940702d71ca634d938159e848ea7732ae2345399ea",
   "trusted_local_models_only": true,
   "no_automatic_download": true,
   "official_test_access": true,
   "protocol": "single unified protocol; evaluation after lock; Test was previously seen",
   "global_lock_sha256": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9",
-  "ctbert_metrics_sha256": "2774791911d91f69ce2b298f2627cae6ae1dfe97127c7dce06529ca42d1a407c"
+  "ctbert_metrics_sha256": "ffc1522cf1fe650737fd27aad6c88936aa14910e0eed5c509d39148c2f72aae4"
 }

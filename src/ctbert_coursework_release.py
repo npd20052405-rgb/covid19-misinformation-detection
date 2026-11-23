@@ -41,23 +41,17 @@ def publish_app():
     assert read(NEW_TEST/'protocol.json')['development_lock_sha256']==digest(NEW/'evaluation_lock.json')
     registry = read(APP/'model_registry.json')
     protocol = registry['models']['distilbert_cal']['protocol']
-    lock = read(DEV/'development_lock.json')
-    for key, folder, kind, label in [
-        ('ctbert', DEV, 'ctbert_original', 'CT-BERT'),
-        ('ctbert_url_emoji', NEW, 'ctbert_url_emoji', 'CT-BERT · URL và emoji'),
-    ]:
-        base_lock = folder/'ctbert/base_lock.json'
-        cal = folder/'calibrator.joblib'
-        files = dict(read(base_lock)['files'])
-        files.update({relative(p):digest(p) for p in (base_lock, cal)})
-        registry['bases'][key] = dict(kind=kind, calibrator=relative(cal), files=files)
-        registry['models'][key+'_cal'] = dict(kind='base',label=label,base=key,
-            metric_model=key,calibrated=True,protocol=protocol)
-    for method, label in [('weighted_mean','Trung bình có trọng số'),('learned_choquet','Choquet')]:
-        registry['models']['ctbert_distilbert_'+method] = dict(
-            kind='ensemble',label=f'CT-BERT + DistilBERT · {label}',members=lock['members'],
-            weights=lock['params'][method]['weights'],metric_model='ctbert_distilbert__'+method,
-            protocol=protocol)
+    for key in ('ctbert_cal', 'ctbert_distilbert_weighted_mean', 'ctbert_distilbert_learned_choquet'):
+        registry['models'].pop(key, None)
+    registry['bases'].pop('ctbert', None)
+    key = 'ctbert_url_emoji'
+    base_lock = NEW/'ctbert/base_lock.json'
+    cal = NEW/'calibrator.joblib'
+    files = dict(read(base_lock)['files'])
+    files.update({relative(p):digest(p) for p in (base_lock, cal)})
+    registry['bases'][key] = dict(kind=key, calibrator=relative(cal), files=files)
+    registry['models'][key+'_cal'] = dict(kind='base', label='CT-BERT · URL và emoji',
+        base=key, metric_model=key, calibrated=True, protocol=protocol)
     names = ['ctbert','ctbert_distilbert__weighted_mean','ctbert_distilbert__learned_choquet']
     val = pd.read_csv(DEV/'metrics.csv').query('model in @names')
     added_val = pd.read_csv(NEW/'metrics.csv').query("model == 'url_emoji'").assign(model='ctbert_url_emoji')
@@ -65,7 +59,7 @@ def publish_app():
     test = pd.concat([pd.read_csv(TEST/'metrics.csv'),pd.read_csv(NEW_TEST/'metrics.csv')]).assign(split='Test2140_reused')
     supplement = pd.concat([val,test],ignore_index=True).assign(protocol=protocol,representation='calibrated')
     assert len(supplement)==8 and not supplement.duplicated(['model','split']).any()
-    supplement.to_csv(APP/'metrics_ctbert.csv',index=False)
+    supplement[supplement.model==key].to_csv(APP/'metrics_ctbert.csv',index=False)
     write_json(APP/'model_registry.json',registry)
     release=read(APP/'release.json')
     release.update(registry_sha256=digest(APP/'model_registry.json'),ctbert_metrics_sha256=digest(APP/'metrics_ctbert.csv'))

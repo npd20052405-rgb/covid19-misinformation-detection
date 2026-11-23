@@ -44,4 +44,4 @@ Nguồn: `results/20261022_unified_coursework_v1/`. Registry và checksum: `mode
 T5/TinyLlama chưa có checkpoint thành công nên không xuất hiện như mô hình khả dụng. App là minh họa phân loại văn bản, không phải hệ thống xác minh sự thật y khoa hoặc tư vấn y tế.
 
 ## Cập nhật CT-BERT
-App có thêm CT-BERT gốc, CT-BERT xử lý URL và emoji, cùng hai cấu hình CT-BERT gốc + DistilBERT dùng Weighted Mean hoặc Choquet. Bảng bổ sung lấy từ Notebook 19–22 và có checksum trong release.json. Mỗi cấu hình dùng đúng checkpoint và calibrator đã đánh giá. Các cấu hình Transformer hiện hành dùng PyTorch CUDA. Cần các artifact thật được ghim trong model_registry.json để chạy dự đoán. App vẫn hiển thị bảng kết quả nếu nhóm chỉ nhận mã và số liệu tổng hợp.
+App có một phương pháp đề xuất là CT-BERT xử lý URL và emoji, với hiệu chỉnh sigmoid. Các baseline và ensemble đối chứng không dùng CT-BERT vẫn có thể chọn. Bảng bổ sung và checkpoint của phương pháp đề xuất được xác minh bằng checksum trong release.json và model_registry.json.

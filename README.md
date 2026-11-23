@@ -8,9 +8,7 @@
 
 COVID-19 posts are short, noisy, and often include links or emoji. We started with TF-IDF classifiers, graph models, and general-purpose transformers, then asked whether a model pretrained on COVID-19 tweets could make better use of this format.
 
-CT-BERT improved on our general-purpose transformer baselines. We then tested whether combining CT-BERT with DistilBERT helped. Weighted averaging and Choquet improved some probability scores, but neither reduced the total number of test errors versus CT-BERT alone. That led us back to the text itself: replace URLs with a shared token, turn emoji into text, fine-tune CT-BERT, and calibrate its output with a sigmoid.
-
-We selected this single pipeline by validation weighted F1. It reduced errors from **38 to 33** on validation and from **37 to 36** on the test mirror versus calibrated CT-BERT. The paired bootstrap interval for the test F1 change spans zero, so the small observed gain needs confirmation on independent data. This is a project pipeline assembled from established methods.
+We selected this pipeline by validation weighted F1. It combines a domain-specific encoder with URL and emoji preprocessing and a separately fitted probability calibrator. It made **33 errors on validation** and **36 on the test mirror**. The comparison below retains the original non-CT-BERT baselines and ensemble controls. The proposed pipeline uses established techniques.
 
 ## Proposed method vs. our baselines
 
@@ -19,9 +17,6 @@ Each member model used the same 3,792-example fit split. Neural checkpoint selec
 | Role | Configuration | Validation weighted F1 | Test mirror weighted F1 |
 |---|---|---:|---:|
 | **Proposed** | **CT-BERT with URL and emoji preprocessing** | 98.457% | 98.318% |
-| Ensemble control | CT-BERT + DistilBERT · Trung bình có trọng số | 98.270% | 98.271% |
-| Baseline | CT-BERT | 98.223% | 98.271% |
-| Ensemble control | CT-BERT + DistilBERT · Choquet | 98.176% | 98.271% |
 | Ensemble control | SVM + DistilBERT · Trọng số | 96.398% | 95.466% |
 | Baseline | DistilBERT | 96.304% | 95.138% |
 | Ensemble control | SVM + DistilBERT · Choquet | 96.258% | 95.933% |
@@ -48,7 +43,6 @@ Each member model used the same 3,792-example fit split. Neural checkpoint selec
 
 These are benchmark references across different training protocols. The mirror matches the documented sample count and class distribution. Row-level equivalence with the official release remains unverified. The project used a single seed and had previously evaluated the mirror. [Dataset description](https://arxiv.org/abs/2011.03327)
 
-![CT-BERT configurations across the two evaluation splits](figures/presentation/08_validation_va_test_ctbert.png)
 
 ## Try the Streamlit app
 

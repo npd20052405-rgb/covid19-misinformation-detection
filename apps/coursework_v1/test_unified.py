@@ -11,10 +11,10 @@ import unified_coursework as u
 
 class UnifiedChecks(unittest.TestCase):
     def test_one_protocol_and_matching_rows(self):
-        choices,missing=d.available();self.assertFalse(missing);self.assertEqual(len(choices),19)
-        reg=e.registry();self.assertEqual(len(reg['bases']),13)
+        choices,missing=d.available();self.assertFalse(missing);self.assertEqual(len(choices),16)
+        reg=e.registry();self.assertEqual(len(reg['bases']),12)
         self.assertEqual(len({x['protocol'] for x in reg['models'].values()}),1)
-        f=d.overview();self.assertEqual(len(f),19);self.assertEqual(set(f.n),{2139});self.assertEqual(set(f.test_n),{2140})
+        f=d.overview();self.assertEqual(len(f),16);self.assertEqual(set(f.n),{2139});self.assertEqual(set(f.test_n),{2140})
         source=pd.concat([pd.read_csv(u.OUT/'final_metrics.csv'),pd.read_csv(APP/'metrics_ctbert.csv')],ignore_index=True)
         for _,row in f.iterrows():
             for split,prefix in [('Validation2139',''),('Test2140_reused','test_')]:
@@ -38,22 +38,16 @@ class UnifiedChecks(unittest.TestCase):
         if not p.exists():u.save(p,evidence)
 
     def test_ctbert_release_inference_parity(self):
-        import ctbert_development as original
         import ctbert_tweet_preprocess as updated
         val=pd.read_csv(u.pm.RAW/'Constraint_Val.csv',dtype=str).set_index('id')
-        cases=[
-            ('ctbert_cal', original.OUT/'ctbert_predictions.csv'),
-            ('ctbert_url_emoji_cal', updated.OUT/'url_emoji_predictions.csv'),
-            ('ctbert_distilbert_weighted_mean', original.OUT/'ctbert_distilbert__weighted_mean_predictions.csv'),
-            ('ctbert_distilbert_learned_choquet', original.OUT/'ctbert_distilbert__learned_choquet_predictions.csv'),
-        ]
+        cases=[('ctbert_url_emoji_cal', updated.OUT/'url_emoji_predictions.csv')]
+        self.assertEqual([key for key in e.registry()['models'] if key.startswith('ctbert')], ['ctbert_url_emoji_cal'])
         for name,path in cases:
             pred=pd.read_csv(path).iloc[:4]
             ids=pred.sample_id.str.split(':').str[-1]
             actual=e.predict(name,val.loc[ids,'tweet'].tolist())
             np.testing.assert_allclose(actual['probability'],pred[['prob_fake','prob_real']],atol=2e-4,rtol=0)
             np.testing.assert_array_equal(actual['labels'],pred.predicted_label)
-            original.load.cache_clear()
             updated.load.cache_clear()
             u.load.cache_clear()
 
@@ -72,7 +66,7 @@ class UnifiedChecks(unittest.TestCase):
         from xai_lime import explain
         app=AppTest.from_file(str(APP/'app.py'),default_timeout=180).run()
         self.assertFalse(app.exception);self.assertEqual(len(app.selectbox),0)
-        self.assertEqual(len(app.dataframe[0].value),19);self.assertEqual(app.metric[2].value,'2.139')
+        self.assertEqual(len(app.dataframe[0].value),16);self.assertEqual(app.metric[2].value,'2.139')
         app.sidebar.radio[0].set_value('Dự đoán').run()
         app.multiselect[0].set_value(['word_svm_cal','char_lr_cal','bert_tiny_cal'])
         text='The hospital reported new COVID-19 cases this week.'
