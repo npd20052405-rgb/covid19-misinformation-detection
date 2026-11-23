@@ -1,0 +1,41 @@
+{
+  "run": "20261110_ctbert_development_v1",
+  "seed": 42,
+  "neural": {
+    "ctbert": {
+      "epochs": 3,
+      "lr": 1e-05,
+      "batch": 4
+    }
+  },
+  "neural_common": {
+    "dropout": 0.2,
+    "weight_decay": 0.1,
+    "max_length": 128,
+    "warmup": 0.1,
+    "gradient_clip": 1.0,
+    "eval_batch": 4
+  },
+  "selection": "raw unsmoothed Train/inner-Validation CE and weighted F1 eval mode; both absolute gaps<0.1, then maximum inner-Validation F1, lower loss, earliest epoch; if no eligible report failure, never loosen",
+  "source": "digitalepidemiologylab/covid-twitter-bert-v2",
+  "revision": "b113bc3c2590d7b32ed62603fe1ebe32e1e5beee",
+  "optimizer_foreach": false,
+  "model_budget_seconds": 3600,
+  "assignment_sha256": "cb457e35c0eb68fc8fb95ec8096f0a8db11d0ae4a9c8a7f25a93d77479e8a7b9",
+  "inner_sha256": "9e0165ff21cecc6b6888d77ea8d157e5504315bdbbd9fac6e1dfd228b657bd5c",
+  "calibration": "fixed sigmoid C only",
+  "meta": "M only, frozen SLSQP log loss from prior protocol",
+  "members": [
+    "ctbert",
+    "distilbert"
+  ],
+  "methods": [
+    "equal_mean",
+    "normalized_pair_min",
+    "weighted_mean",
+    "learned_choquet"
+  ],
+  "evaluation": "Validation2139 development only, after lock; no Test",
+  "code_sha256": "66dec182551ace1cfa48441b636892e3e004426b5fcfa09e769960097ce7759b",
+  "historical_code_sha256": "6dabfa3e5b7bb021385f75712ecb90f5330c389e8d3f9291e8713b01f3ebb821"
+}

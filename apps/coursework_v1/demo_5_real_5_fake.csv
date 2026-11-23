@@ -1,0 +1,11 @@
+﻿id,text,expected_label,source_url
+R1,"Historical COVID-19 surveillance: WHO counted 118,319 confirmed infections globally in its report for 11 March 2020, together with 4,292 deaths. The numbers belong to that dated report and should not be presented as current totals.",real,https://www.who.int/docs/default-source/coronaviruse/situation-REPORTS/20200311-SITREP-51-COVID-19.PDF
+R2,COVID-19 testing update: molecular assays such as PCR examine samples for the genetic material of SARS-CoV-2. Antibody tests serve a different purpose and are not a replacement for diagnosing infection during its early stage.,real,https://www.who.int/news-room/questions-and-answers/item/coronavirus-disease-covid-19
+R3,"In its January 2020 outbreak update, WHO described 41 confirmed infections in Wuhan and one death among those patients. The report stated that the person who died had serious underlying medical conditions.",real,https://www.who.int/emergencies/disease-outbreak-news/item/2020-DON233
+R4,"In the WHO report dated 11 March 2020, China had 80,955 confirmed COVID-19 cases and 3,162 reported deaths. Outside China, the same report listed 37,364 confirmed cases and 1,130 deaths.",real,https://www.who.int/docs/default-source/coronaviruse/situation-REPORTS/20200311-SITREP-51-COVID-19.PDF
+R5,"The WHO outbreak notice published on 12 January 2020 described 41 confirmed cases in Wuhan. Seven patients were seriously ill, six had left hospital, and one patient with pre-existing illness had died.",real,https://www.who.int/emergencies/disease-outbreak-news/item/2020-DON233
+F1,COVID-19 vaccines contain tracking microchips.,fake,https://archive.cdc.gov/www_cdc_gov/coronavirus/2019-ncov/vaccines/facts.html
+F2,Drinking hot water completely cures COVID-19.,fake,https://healthcluster.who.int/docs/librariesprovider16/meeting-reports/rumours-answers-english-dari-pashto.pdf
+F3,Coronavirus spreads through 5G mobile networks.,fake,https://www.gov.uk/guidance/5g-and-coronavirus-covid-19
+F4,Antibiotics kill the coronavirus directly.,fake,https://www.who.int/news-room/questions-and-answers/item/coronavirus-disease-covid-19
+F5,Everyone who recovers from COVID-19 becomes permanently immune.,fake,https://www.cdc.gov/covid/about/reinfection.html

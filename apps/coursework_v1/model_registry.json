@@ -1,0 +1,364 @@
+{
+  "bases": {
+    "word_lr": {
+      "kind": "unified",
+      "unified_key": "word_lr",
+      "calibrator": "results\\20261022_unified_coursework_v1\\word_lr\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\word_lr\\pipeline.joblib": "57781649fcede388bbb2af1e8008cbdecea08c422118cb06f8d22952636246a1",
+        "results\\20261022_unified_coursework_v1\\word_lr\\base_lock.json": "a3d9f48f1708f35fa82f927dd602efee1da8c3101626310df9003278cb201862",
+        "results\\20261022_unified_coursework_v1\\word_lr\\calibrator.joblib": "cb531de0da33faac3484930ff8cd27cb34e744031320af049afb8c0f866ce340",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "word_svm": {
+      "kind": "unified",
+      "unified_key": "word_svm",
+      "calibrator": "results\\20261022_unified_coursework_v1\\word_svm\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\word_svm\\pipeline.joblib": "ce7d7d65db38140b3ccb8af849b084e9716aac5e89b2cba872b89332aebbedf5",
+        "results\\20261022_unified_coursework_v1\\word_svm\\base_lock.json": "94be8488b7069e66111244412d0caba1816e94a26ebe9fe7cc351893f36dbdaf",
+        "results\\20261022_unified_coursework_v1\\word_svm\\calibrator.joblib": "cf3f67e2f1a2eaf2e96218a527b30a68362cc74c1ce870e0dbc7358c86f40de2",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "word_nb": {
+      "kind": "unified",
+      "unified_key": "word_nb",
+      "calibrator": "results\\20261022_unified_coursework_v1\\word_nb\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\word_nb\\pipeline.joblib": "7f5224111a2d8279fc42632ebeade8302bd769fc85f3a9512d1a69051f1e9826",
+        "results\\20261022_unified_coursework_v1\\word_nb\\base_lock.json": "7d880af05a847611a384f98538b7cd9021719d99f131b3d880f9a49f5f7b2743",
+        "results\\20261022_unified_coursework_v1\\word_nb\\calibrator.joblib": "3141dcc63b8ef2b378294ef32208160341066c45fb5448c94c64e4ff0dfc216d",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "char_lr": {
+      "kind": "unified",
+      "unified_key": "char_lr",
+      "calibrator": "results\\20261022_unified_coursework_v1\\char_lr\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\char_lr\\pipeline.joblib": "b14a172e4bdb917b488ddce01e4766349fed4eca4746e349864a9c59c71c629c",
+        "results\\20261022_unified_coursework_v1\\char_lr\\base_lock.json": "0d649f2bc414ebbefc71629fef59a665953411ca0e89da1ed8910281ded5446e",
+        "results\\20261022_unified_coursework_v1\\char_lr\\calibrator.joblib": "adde0db9acc3f8ecb1c255d3c39e9029b32c59872d7eb184daeebda8d1d60b09",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "bert_tiny": {
+      "kind": "unified",
+      "unified_key": "bert_tiny",
+      "calibrator": "results\\20261022_unified_coursework_v1\\bert_tiny\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\config.json": "2dac7dfdde48a78989106efe4ba5e6b5a3b32a07e2aaf085fa682654d8f73475",
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\model.safetensors": "d829050e2ced6437c67261b5cba96ea5a57d0900f51eafad4b6872fa53bbf83e",
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\tokenizer_config.json": "79fab1131cac486e34af99d2dc4dbb05dd1c5be4089ff9668da147d618f0eb18",
+        "models\\20261022_unified_coursework_v1\\bert_tiny\\epoch_04\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "results\\20261022_unified_coursework_v1\\bert_tiny\\base_lock.json": "f856bb11ae982c65f23fd4f7435ec8ffdaf620fbddf2a44f221c0c90f6216103",
+        "results\\20261022_unified_coursework_v1\\bert_tiny\\calibrator.joblib": "92c08aea252896a3de206f5d9df744e4d55c57797da245f75bc0abae02b86e7b",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "distilbert": {
+      "kind": "unified",
+      "unified_key": "distilbert",
+      "calibrator": "results\\20261022_unified_coursework_v1\\distilbert\\calibrator.joblib",
+      "files": {
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\config.json": "6a89fca62d647ac1fa5ee82cea5d9d4eb56300306f00e834b2817d1f9a667949",
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\model.safetensors": "83ceb83d8d110d70462ebc6252876da2665dbb1e6c639c5765c626c3ecb85ea5",
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\tokenizer_config.json": "1f61c4e28cd528a46432fc92545e9858108940ac921959a2575ab5c6039473b2",
+        "models\\20261022_unified_coursework_v1\\distilbert\\epoch_03\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "results\\20261022_unified_coursework_v1\\distilbert\\base_lock.json": "7ec4d17418ab289d48723557d1eb02f2bd6b52d0b0cb2a9919f5b145a488230d",
+        "results\\20261022_unified_coursework_v1\\distilbert\\calibrator.joblib": "71ad9a3519511c10bc067eb4e7ddf9ef502b2880a952683db4e6111e0722a633",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "gcn": {
+      "kind": "unified",
+      "unified_key": "gcn",
+      "calibrator": "results\\20261022_unified_coursework_v1\\gcn\\calibrator.joblib",
+      "files": {
+        "models\\20261022_gap_controlled_graphs_v1\\gcn\\epoch_12.safetensors": "4efbd9d44db4758a9653f5cfda9272ed6f68d8581c905b18e8e4839bb6ae992f",
+        "models\\20261022_gap_controlled_graphs_v1\\gcn\\vocab.json": "33aa7469591c77a015088af10984dbb9de5aef4d17fce6b2062107aa71f22d1b",
+        "results\\20261022_unified_coursework_v1\\gcn\\base_lock.json": "551ea295506afe20d90dccae04fc50a71263d625784278676703e59c1375475c",
+        "results\\20261022_unified_coursework_v1\\gcn\\calibrator.joblib": "9b553afcbc40ed495a92ea0b92c3830802a91661b231f0f05eae0e0fdf93dbe2",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "gat": {
+      "kind": "unified",
+      "unified_key": "gat",
+      "calibrator": "results\\20261022_unified_coursework_v1\\gat\\calibrator.joblib",
+      "files": {
+        "models\\20261022_gap_controlled_graphs_v1\\gat\\epoch_16.safetensors": "86343f1d5998be8e4a4cbb7f688b1e4a76b262ad90674b2ded251621a00c491d",
+        "models\\20261022_gap_controlled_graphs_v1\\gat\\vocab.json": "33aa7469591c77a015088af10984dbb9de5aef4d17fce6b2062107aa71f22d1b",
+        "results\\20261022_unified_coursework_v1\\gat\\base_lock.json": "005885d48ce8b01b5f710f4d827124cf5c9541afef72fa3c26bb9631381c4968",
+        "results\\20261022_unified_coursework_v1\\gat\\calibrator.joblib": "f5ec7e5253f8f5341059d224bb54c47045310e416b592a0f2c8c71fa00445a83",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "bert": {
+      "kind": "unified",
+      "unified_key": "bert",
+      "calibrator": "results\\20261022_unified_coursework_v1\\bert\\calibrator.joblib",
+      "files": {
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\config.json": "dd976a9e9183626d3546762808b20e19e6eb173780554d94bad41caa0de53306",
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\model.safetensors": "e097ea72f8481cb2ee477e4ef36cb9990cdd890c4088022f1c096b4cc174d5f4",
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\tokenizer_config.json": "4898a0565d4404de16adb5c7c775e0b4f5d7f9641d66dd2cff8364f99e934e4a",
+        "models\\20261022_gap_controlled_transformers_v2\\bert\\epoch_02\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "results\\20261022_unified_coursework_v1\\bert\\base_lock.json": "be2fcd87bd98f8e2274f8b9ff113506a588d3a6ebb97c376eaae84d4d46ff1ee",
+        "results\\20261022_unified_coursework_v1\\bert\\calibrator.joblib": "1ec2a56a51032fe493a8d6cc97a29f95bf455d241def29bf504ef162222d70f1",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "roberta": {
+      "kind": "unified",
+      "unified_key": "roberta",
+      "calibrator": "results\\20261022_unified_coursework_v1\\roberta\\calibrator.joblib",
+      "files": {
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\config.json": "37b96b566dc10a17e4bb621de139513237ede28087730f40e413a8ae303a7875",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\model.safetensors": "fe05b87e8071b05775422478686039b08c52e0554552517e28231ef39ed25ffc",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\special_tokens_map.json": "8574792bfefae68f2ce2eae93a4145d95b1232c59e71094bcdcb49dbcb549c97",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\tokenizer.json": "350ba8db06d0df480135c681dc060877bdb3021947bd1932fc2e39b3e2a02b28",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\tokenizer_config.json": "ae4960708eae794180a03fa24560c20a8a7b60570c72171e30f6ac71f4a073aa",
+        "models\\20261022_gap_controlled_transformers_v2\\roberta\\epoch_02\\vocab.json": "ed19656ea1707df69134c4af35c8ceda2cc9860bf2c3495026153a133670ab5e",
+        "results\\20261022_unified_coursework_v1\\roberta\\base_lock.json": "6d6f1679f296d05c1d2e2accd2ecc91b840d1a19e77767e274849db05ac373f9",
+        "results\\20261022_unified_coursework_v1\\roberta\\calibrator.joblib": "796722c3ec6e14ab3517aa8e2d3fa94d2ff0f35fdf1c6355baf1ed8892ebde7e",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "gpt2": {
+      "kind": "unified",
+      "unified_key": "gpt2",
+      "calibrator": "results\\20261022_unified_coursework_v1\\gpt2\\calibrator.joblib",
+      "files": {
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\config.json": "6c092ae75c07e5ae6540b35a66cf05a44ef33dcc1729418f13b6a70876ec9f5f",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\model.safetensors": "51d2f12f747abc91b96453339fa0b5a3f96e5fa96ac3531852fddc2e182bea97",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\special_tokens_map.json": "27b2f8d519a2a06d346ac97e373ab0baca69205ab9c2026aafffa9c70fbea5d5",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\tokenizer.json": "cd34e1be1baf1dad8c9efbb4dd8f84b8ab74386af424da5cab8acfbf25c5123a",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\tokenizer_config.json": "38f7080745db49cdc0d8c4292e8c0834f825be8a769504a4ccdb267b865407d4",
+        "models\\20261022_gap_controlled_transformers_v2\\gpt2\\epoch_03\\vocab.json": "3ba3c3109ff33976c4bd966589c11ee14fcaa1f4c9e5e154c2ed7f99d80709e7",
+        "results\\20261022_unified_coursework_v1\\gpt2\\base_lock.json": "a87f4405da5696e8d116a3cfcec71fb98453287a2af86b74fa39543fd713a781",
+        "results\\20261022_unified_coursework_v1\\gpt2\\calibrator.joblib": "84b773d8f276a44baf19628db0b9c756af9da17d5fe243c454bd51e5443432be",
+        "results\\20261022_unified_coursework_v1\\global_development_lock.json": "de51b5157c434b19547a81e76fea4370dbbda607722a2321ffacd7b94662bcc9"
+      }
+    },
+    "ctbert": {
+      "kind": "ctbert_original",
+      "calibrator": "results\\20261110_ctbert_development_v1\\calibrator.joblib",
+      "files": {
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\config.json": "573a1d834bed65e1e3d017e96c3043245700046024eaf22855b4d7bdc4a3616e",
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\model.safetensors": "c49b66593d439387e7d7eb256102fae9fad3ce8e4fc5f5957ecdb28f96153fc4",
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\tokenizer_config.json": "c0b55baeaa0376d3153e1759b490d0d543700ff5de65cc9fba17c1fb7162384f",
+        "models\\20261110_ctbert_development_v1\\ctbert\\epoch_03\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "results\\20261110_ctbert_development_v1\\ctbert\\base_lock.json": "f0fada94127710294aba40e079a0a295336cfc9942b45fadd37cd8bb86db96a9",
+        "results\\20261110_ctbert_development_v1\\calibrator.joblib": "6d1bee1e8fca6d8a96f9c868469a55754ab5c1d7ed20cff9bfb0920f0f3f54a3"
+      }
+    },
+    "ctbert_url_emoji": {
+      "kind": "ctbert_url_emoji",
+      "calibrator": "results\\20261110_ctbert_tweet_preprocess_v2\\calibrator.joblib",
+      "files": {
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\config.json": "573a1d834bed65e1e3d017e96c3043245700046024eaf22855b4d7bdc4a3616e",
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\model.safetensors": "b27eb1facb6e83c43b2ff934b6a93ed9b3be4a9a4694db15bda9c09363b48352",
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\special_tokens_map.json": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6",
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\tokenizer.json": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\tokenizer_config.json": "c0b55baeaa0376d3153e1759b490d0d543700ff5de65cc9fba17c1fb7162384f",
+        "models\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\epoch_02\\vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "results\\20261110_ctbert_tweet_preprocess_v2\\ctbert\\base_lock.json": "6879fb2e781294339cc795f51e1090def73fa0306a71776b82505f062c211105",
+        "results\\20261110_ctbert_tweet_preprocess_v2\\calibrator.joblib": "3134dcfda1cd9f535e7dc8c2788f88de76cd9837ab35204e5596d533175946d2"
+      }
+    }
+  },
+  "models": {
+    "word_lr_cal": {
+      "kind": "base",
+      "base": "word_lr",
+      "calibrated": true,
+      "label": "Logistic (từ)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "word_svm_cal": {
+      "kind": "base",
+      "base": "word_svm",
+      "calibrated": true,
+      "label": "SVM (từ)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "word_nb_cal": {
+      "kind": "base",
+      "base": "word_nb",
+      "calibrated": true,
+      "label": "Naive Bayes (từ)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "char_lr_cal": {
+      "kind": "base",
+      "base": "char_lr",
+      "calibrated": true,
+      "label": "Logistic (ký tự)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "bert_tiny_cal": {
+      "kind": "base",
+      "base": "bert_tiny",
+      "calibrated": true,
+      "label": "BERT-Tiny",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "distilbert_cal": {
+      "kind": "base",
+      "base": "distilbert",
+      "calibrated": true,
+      "label": "DistilBERT",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "gcn_cal": {
+      "kind": "base",
+      "base": "gcn",
+      "calibrated": true,
+      "label": "GCN (đồ thị từ)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "gat_cal": {
+      "kind": "base",
+      "base": "gat",
+      "calibrated": true,
+      "label": "GAT (đồ thị từ)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "bert_cal": {
+      "kind": "base",
+      "base": "bert",
+      "calibrated": true,
+      "label": "BERT-Base",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "roberta_cal": {
+      "kind": "base",
+      "base": "roberta",
+      "calibrated": true,
+      "label": "RoBERTa-Base",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "gpt2_cal": {
+      "kind": "base",
+      "base": "gpt2",
+      "calibrated": true,
+      "label": "GPT-2 (phân loại)",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "B1_weighted_mean": {
+      "kind": "ensemble",
+      "members": [
+        "word_svm",
+        "char_lr"
+      ],
+      "weights": [
+        0.40976366508148504,
+        0.590236334918515
+      ],
+      "label": "SVM + Logistic ký tự · Trọng số",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble",
+      "metric_model": "B1__weighted_mean"
+    },
+    "B1_learned_choquet": {
+      "kind": "ensemble",
+      "members": [
+        "word_svm",
+        "char_lr"
+      ],
+      "weights": [
+        0.35898656198362755,
+        0.5172884890452837,
+        0.12372494897108888
+      ],
+      "label": "SVM + Logistic ký tự · Choquet",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble",
+      "metric_model": "B1__learned_choquet"
+    },
+    "B3_weighted_mean": {
+      "kind": "ensemble",
+      "members": [
+        "word_svm",
+        "distilbert"
+      ],
+      "weights": [
+        0.2627538265804668,
+        0.7372461734195331
+      ],
+      "label": "SVM + DistilBERT · Trọng số",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble",
+      "metric_model": "B3__weighted_mean"
+    },
+    "B3_learned_choquet": {
+      "kind": "ensemble",
+      "members": [
+        "word_svm",
+        "distilbert"
+      ],
+      "weights": [
+        0.036086646650838876,
+        0.07927385405946893,
+        0.8846394992896922
+      ],
+      "label": "SVM + DistilBERT · Choquet",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble",
+      "metric_model": "B3__learned_choquet"
+    },
+    "ctbert_cal": {
+      "kind": "base",
+      "label": "CT-BERT",
+      "base": "ctbert",
+      "metric_model": "ctbert",
+      "calibrated": true,
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "ctbert_url_emoji_cal": {
+      "kind": "base",
+      "label": "CT-BERT · URL và emoji",
+      "base": "ctbert_url_emoji",
+      "metric_model": "ctbert_url_emoji",
+      "calibrated": true,
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "ctbert_distilbert_weighted_mean": {
+      "kind": "ensemble",
+      "label": "CT-BERT + DistilBERT · Trung bình có trọng số",
+      "members": [
+        "ctbert",
+        "distilbert"
+      ],
+      "weights": [
+        0.9113553326871912,
+        0.08864466731280891
+      ],
+      "metric_model": "ctbert_distilbert__weighted_mean",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    },
+    "ctbert_distilbert_learned_choquet": {
+      "kind": "ensemble",
+      "label": "CT-BERT + DistilBERT · Choquet",
+      "members": [
+        "ctbert",
+        "distilbert"
+      ],
+      "weights": [
+        0.5767068512741989,
+        0.05458757770766521,
+        0.36870557101813595
+      ],
+      "metric_model": "ctbert_distilbert__learned_choquet",
+      "protocol": "Unified inner-fit3792 / C calibration / M ensemble"
+    }
+  }
+}

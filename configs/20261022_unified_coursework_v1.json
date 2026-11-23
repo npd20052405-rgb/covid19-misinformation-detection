@@ -1,0 +1,183 @@
+{
+  "run": "20261022_unified_coursework_v1",
+  "seed": 42,
+  "models": [
+    "word_lr",
+    "word_svm",
+    "word_nb",
+    "char_lr",
+    "bert_tiny",
+    "distilbert",
+    "gcn",
+    "gat",
+    "bert",
+    "roberta",
+    "gpt2"
+  ],
+  "groups": {
+    "B0": [
+      "word_nb",
+      "char_lr"
+    ],
+    "B1": [
+      "word_svm",
+      "char_lr"
+    ],
+    "B2": [
+      "word_nb",
+      "char_lr",
+      "word_svm"
+    ],
+    "B3": [
+      "word_svm",
+      "distilbert"
+    ]
+  },
+  "fit_n": 3792,
+  "inner_dev_n": 702,
+  "C_n": 642,
+  "M_n": 642,
+  "assignment_sha256": "cb457e35c0eb68fc8fb95ec8096f0a8db11d0ae4a9c8a7f25a93d77479e8a7b9",
+  "inner_sha256": "9e0165ff21cecc6b6888d77ea8d157e5504315bdbbd9fac6e1dfd228b657bd5c",
+  "reused_models": [
+    "gcn",
+    "gat",
+    "bert",
+    "roberta",
+    "gpt2"
+  ],
+  "train_new": [
+    "word_lr",
+    "word_svm",
+    "word_nb",
+    "char_lr",
+    "bert_tiny",
+    "distilbert"
+  ],
+  "classical": {
+    "protocol": "H1_H2_internal_Train_pilot_v1",
+    "seed": 42,
+    "ratios": {
+      "A": 0.7,
+      "C": 0.1,
+      "M": 0.1,
+      "H": 0.1
+    },
+    "group_source": "results/20261018_183142_oof_ensemble_a00537bf/train_fold_assignment.csv",
+    "group_edges": "results/20261018_183142_oof_ensemble_a00537bf/train_near_edges.csv",
+    "group_policy": "Reuse frozen Train-only lexical connected components, cosine >=0.90; no new CV. Stratify approximately by group-level class counts.",
+    "base_models": [
+      "dummy",
+      "word_lr",
+      "word_nb",
+      "word_svm",
+      "char_lr"
+    ],
+    "h2_members": [
+      "word_nb",
+      "char_lr"
+    ],
+    "representations": [
+      "raw",
+      "calibrated"
+    ],
+    "pooling": [
+      "fixed_pair_mean",
+      "normalized_pair_min",
+      "weighted_mean",
+      "additive_pooling_alias",
+      "learned_nonnegative_choquet"
+    ],
+    "features": {
+      "word_ngrams": [
+        1,
+        2
+      ],
+      "char_ngrams": [
+        3,
+        5
+      ],
+      "min_df": 2,
+      "max_features": 50000,
+      "sublinear_tf": true
+    },
+    "base_parameters": {
+      "LR_C": 1.0,
+      "LR_max_iter": 2000,
+      "SVM_C": 1.0,
+      "SVM_max_iter": 5000,
+      "NB_alpha": 1.0
+    },
+    "calibration": {
+      "method": "regularized_sigmoid",
+      "C": 1.0,
+      "max_iter": 2000,
+      "probability_input": "logit(p_real), clipped at 1e-7",
+      "svm_input": "decision_function for real",
+      "fit_partition": "C",
+      "tuning": "none"
+    },
+    "combiner": {
+      "objective": "M log loss",
+      "optimizer": "SLSQP",
+      "maxiter": 300,
+      "ftol": 1e-10,
+      "initial": "equal singleton masses; pair mass zero",
+      "bounds": [
+        0.0,
+        1.0
+      ],
+      "sum_weights": 1.0,
+      "tuning": "none",
+      "threshold": 0.5,
+      "tie_label": "fake",
+      "zero_score_fallback": "equal probabilities"
+    },
+    "calibration_metrics": {
+      "bins": 10,
+      "binning": "equal width on [0,1], left closed; final bin includes 1",
+      "brier": "binary mean (p_real - y_real)^2, not two-class sum",
+      "ece": "top-label confidence ECE and real-class ECE",
+      "mce": "top-label maximum nonempty-bin calibration gap"
+    },
+    "native_threads": 2,
+    "new_cv_folds": 0,
+    "multi_seed": false,
+    "test_access": false,
+    "new_encoders": false,
+    "bert_tiny": "Historical control only. Existing full-Train checkpoint must not enter this pilot because it has seen C/M/H.",
+    "selection": "No hyperparameter grid, family winner, threshold tuning, or H-based iteration. Evaluate all fixed configurations after lock; Validation is sensitivity development only."
+  },
+  "neural": {
+    "bert_tiny": {
+      "epochs": 4,
+      "lr": 5e-05,
+      "batch": 16
+    },
+    "distilbert": {
+      "epochs": 3,
+      "lr": 1e-05,
+      "batch": 4
+    }
+  },
+  "neural_common": {
+    "dropout": 0.2,
+    "weight_decay": 0.1,
+    "max_length": 128,
+    "warmup": 0.1,
+    "gradient_clip": 1.0,
+    "eval_batch": 4
+  },
+  "selection": "raw unsmoothed Train/inner-Validation CE and weighted F1 eval mode; both absolute gaps<0.1, then maximum inner-Validation F1, lower loss, earliest epoch; if no eligible report failure, never loosen",
+  "ML_selection": "fixed original hyperparameters, no epoch selection; report raw/calibrated Train-innerDev gaps; SVM raw CE is N/A; gap is diagnostic, no fabricated eligibility",
+  "calibration": "all 11 base models: LogisticRegression C=1 max_iter2000 seed42 on C score only; LR/NB/neural logit P(real) clip1e-7; LinearSVC real margin; no tuning",
+  "combiner": "B0/B1/B2/B3; Equal Mean, Weighted Mean, nonnegative 2-additive Choquet; normalized pair-min for pairs; learn only on calibrated M; SLSQP log loss bounds0..1 sum1 maxiter300 ftol1e-10; equal singleton initial",
+  "evaluation": "lock every checkpoint/calibrator/combiner before Official Validation2139 and Test2140; no tuning on either; report all fixed candidates",
+  "test": "user explicitly approved reevaluation of already-seen Test mirror; reused Test is not a new independent confirmatory test; source pinned commit030deba36d118c124709fd72d7d5f14c7bc69053",
+  "no_test_before_lock": true,
+  "threshold": "argmax fake then real; ties fake",
+  "new_training_budget_per_model_seconds": 3600,
+  "total_training_budget_seconds": 14400,
+  "multi_seed": false,
+  "new_folds": 0
+}

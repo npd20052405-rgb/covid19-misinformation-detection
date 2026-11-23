@@ -1,0 +1,16 @@
+streamlit==1.44.1
+numpy==2.1.0
+pandas==2.3.3
+scikit-learn==1.6.1
+scipy==1.16.2
+joblib==1.4.2
+threadpoolctl==3.5.0
+transformers==4.46.3
+safetensors>=0.4.3
+# Verified on this Windows machine with torch 2.7.1+cu118; CPU-only Transformer deployment has not been verified.
+torch==2.7.1
+
+lime==0.2.0.1
+matplotlib==3.10.8
+torch-geometric==2.8.0.post1
+emoji==2.15.0
