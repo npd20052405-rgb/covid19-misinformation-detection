@@ -123,8 +123,9 @@ def render_file_prediction(choices):
     st.write(f'Đã đọc {len(frame)} đoạn văn bản.')
     with st.expander('Xem dữ liệu đầu vào'):
         st.dataframe(frame,hide_index=True,use_container_width=True)
+    from dashboard import PROPOSED_ID
     selected=st.multiselect('Chọn mô hình cho file',list(choices),
-        default=['roberta_cal'] if 'roberta_cal' in choices else [],
+        default=[PROPOSED_ID] if PROPOSED_ID in choices else [],
         format_func=choices.get,key='file_prediction_models')
     signature=hashlib.sha256(payload).hexdigest()
     if st.button('Dự đoán toàn bộ file',type='primary',key='run_file_prediction'):

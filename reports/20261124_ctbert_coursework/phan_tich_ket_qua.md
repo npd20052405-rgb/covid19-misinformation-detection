@@ -1,4 +1,6 @@
-# Kết quả cuối của các thí nghiệm CT-BERT
+# Phương pháp đề xuất và kết quả đối chiếu
+
+**Phương pháp đề xuất duy nhất là CT-BERT xử lý URL và emoji, sau đó hiệu chỉnh sigmoid.** Nhóm chọn theo Weighted-F1 cao nhất trên Validation. CT-BERT gốc, Weighted Mean và Choquet là các đối chứng.
 
 So sánh sử dụng Validation 2.139 mẫu và Test mirror 2.140 mẫu đã từng dùng. Mỗi CT-BERT fit 3.792 mẫu, chọn epoch trên 702 mẫu nội bộ, hiệu chỉnh sigmoid trên C, và giữ seed 42. Weighted Mean và Choquet dùng xác suất của CT-BERT gốc và DistilBERT, với hệ số đã khóa trên M. Biến thể URL và emoji là mô hình đơn với checkpoint riêng. Không ghép biến thể này vào các ensemble cũ.
 

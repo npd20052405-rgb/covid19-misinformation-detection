@@ -57,13 +57,17 @@ if page=='Tổng quan':
     title('CONSTRAINT 2021','Phát hiện tin giả COVID-19',
           'Một giao thức thống nhất · Validation 2.139 · Test mirror 2.140 mẫu')
     frame=dashboard.overview()
+    proposed=frame.loc[frame.app_id==dashboard.PROPOSED_ID].iloc[0]
+    st.subheader('Phương pháp đề xuất')
+    st.write('**CT-BERT với chuẩn hóa URL, chuyển emoji thành chữ và hiệu chỉnh sigmoid**')
+    st.caption('Chọn theo Weighted-F1 cao nhất trên Validation. Các cấu hình khác là baseline hoặc đối chứng ensemble.')
     a,b,c,d=st.columns(4)
     a.metric('Mô hình',len(dashboard.CATALOG));a.caption(f"{(frame.kind!='Kết hợp').sum()} mô hình đơn · {(frame.kind=='Kết hợp').sum()} kết hợp")
     b.metric('Val F1 cao nhất',f'{frame.weighted_f1.max():.2%}');b.caption('Kết quả development đã quan sát')
     c.metric('Validation','2.139');c.caption('Loại một mẫu trùng đã xác minh')
     d.metric('Test','2.140');d.caption('Đánh giá lại tập Test đã được xem')
-    st.divider();st.subheader('Kết quả Validation và Test')
-    names={'display_name':'Mô hình','kind':'Loại','weighted_f1':'Val Weighted-F1 (%)','macro_f1':'Val Macro-F1 (%)','accuracy':'Val Accuracy (%)','test_weighted_f1':'Test Weighted-F1 (%)','test_macro_f1':'Test Macro-F1 (%)','test_accuracy':'Test Accuracy (%)'}
+    st.divider();st.subheader('Phương pháp đề xuất và các đối chứng')
+    names={'display_name':'Mô hình','role':'Vai trò','kind':'Loại','weighted_f1':'Val Weighted-F1 (%)','macro_f1':'Val Macro-F1 (%)','accuracy':'Val Accuracy (%)','test_weighted_f1':'Test Weighted-F1 (%)','test_macro_f1':'Test Macro-F1 (%)','test_accuracy':'Test Accuracy (%)'}
     view=frame[list(names)].rename(columns=names).copy()
     for col in view:
         if col.endswith('(%)'):view[col]*=100
@@ -76,6 +80,14 @@ if page=='Tổng quan':
         st.caption('Độ đo bổ sung dùng thang 0–1. Precision/Recall ghi rõ weighted, macro hoặc từng lớp; Brier cho P(Real); ECE/MCE 10 bin.')
         chart=frame.set_index('display_name')[['weighted_f1','test_weighted_f1']].mul(100).rename(columns={'weighted_f1':'Validation','test_weighted_f1':'Test'})
         st.bar_chart(chart,stack=False,color=['#198d88','#ef8354'])
+    st.subheader('Đối chiếu nghiên cứu trước')
+    st.table(pd.DataFrame([
+        {'Nghiên cứu':'Felber (2021) · Linear SVM','Tập đánh giá':'Test chính thức','Weighted-F1':'95,19%'},
+        {'Nghiên cứu':'Nhóm · CT-BERT với URL và emoji','Tập đánh giá':'Test mirror','Weighted-F1':f'{proposed.test_weighted_f1:.3%}'},
+        {'Nghiên cứu':'Glazkova et al. (2021) · Ba CT-BERT','Tập đánh giá':'Test chính thức','Weighted-F1':'98,69%'},
+    ]))
+    st.caption('Bản mirror và bản chính thức có cùng số mẫu và phân bố nhãn. Chưa đối chiếu từng dòng.')
+    st.markdown('[Felber](https://arxiv.org/abs/2101.03717) · [Glazkova et al.](https://arxiv.org/abs/2012.11967)')
     with st.expander('Giao thức và giới hạn'):
         st.write('Train nội bộ 3.792 mẫu học mô hình; 702 mẫu nội bộ chọn epoch; C=642 hiệu chỉnh xác suất; M=642 học Ensemble. Assignment nhóm cố định, seed42. H không dùng để học hoặc chọn trong đợt này.')
         st.write('Neural chọn checkpoint có cả gap loss/F1 nội bộ dưới0,1; ML dùng cấu hình cố định, không epoch. Ngân sách kiến trúc khác nhau được công bố trong báo cáo. Một seed và gap nhỏ không chứng minh ổn định hoặc không overfit.')
@@ -97,9 +109,9 @@ elif page=='Dự đoán':
             text=input_col.text_area('Văn bản tiếng Anh',height=220,max_chars=engine.MAX_CHARS,
                  placeholder='Dán bài đăng hoặc đoạn tin tiếng Anh về COVID-19…',key='prediction_text')
             selected=config_col.multiselect('Chọn mô hình',list(choices),
-                 default=[k for k in ['ctbert_url_emoji_cal','distilbert_cal','ctbert_distilbert_weighted_mean'] if k in choices],
+                 default=[k for k in [dashboard.PROPOSED_ID] if k in choices],
                  format_func=choices.get,key='prediction_models')
-            config_col.caption('Có thể chọn nhiều mô hình. Văn bản được xử lý cục bộ.')
+            config_col.caption('Có thể chọn nhiều mô hình. Văn bản được xử lý trên máy chủ chạy app.')
             submit=st.form_submit_button('Xem kết quả',type='primary',use_container_width=True)
         if submit:
             try:
@@ -159,7 +171,7 @@ else:
         left,right=st.columns([2,1])
         text=left.text_area('Văn bản cần giải thích',height=180,max_chars=MAX_XAI_CHARS,key='xai_text',
              placeholder='Nhập cùng văn bản cần phân tích hoặc dùng nút lấy từ trang Dự đoán…')
-        selected=right.multiselect('Mô hình cần giải thích',list(choices),default=['word_svm_cal'] if 'word_svm_cal' in choices else [],format_func=choices.get,key='xai_models')
+        selected=right.multiselect('Mô hình cần giải thích',list(choices),default=[dashboard.PROPOSED_ID] if dashboard.PROPOSED_ID in choices else [],format_func=choices.get,key='xai_models')
         samples=right.select_slider('Số mẫu nhiễu LIME',options=[200,300,600],value=300)
         right.caption('300 mẫu là mức mặc định. Mô hình Transformer có thể chạy lâu hơn.')
         submitted=st.form_submit_button('Tạo giải thích LIME',type='primary',use_container_width=True)

@@ -5,6 +5,7 @@ import pandas as pd
 import inference as engine
 APP=Path(__file__).resolve().parent
 PRIMARY_COHORT='Validation2139'
+PROPOSED_ID='ctbert_url_emoji_cal'
 COHORTS={'Validation2139':'Validation · 2.139 mẫu','Test2140_reused':'Test · 2.140 mẫu (đã xem trước)'}
 MEMBER_NAMES={'ctbert':'CT-BERT','word_svm':'SVM (từ)','char_lr':'Logistic (ký tự)','distilbert':'DistilBERT','word_nb':'Naive Bayes (từ)'}
 CATALOG={}
@@ -28,7 +29,8 @@ def overview(protocol=None,cohort=None):
         val=final[(final.model==model)&(final.split=='Validation2139')]
         test=final[(final.model==model)&(final.split=='Test2140_reused')]
         if len(val)!=1 or len(test)!=1:raise ValueError('Metric thiếu hoặc không khớp đúng checkpoint/giao thức.')
-        row=val.iloc[0].to_dict();row.update(display_name=name,kind=kind,app_id=key)
+        row=val.iloc[0].to_dict();row.update(display_name=name,kind=kind,app_id=key,
+            role="Đề xuất" if key==PROPOSED_ID else ("Đối chứng ensemble" if kind=="Kết hợp" else "Baseline"))
         for col,value in test.iloc[0].items():
             if isinstance(value,Number):row['test_'+col]=value
         rows.append(row)
